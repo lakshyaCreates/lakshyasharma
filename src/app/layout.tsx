@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+<<<<<<< HEAD
 
 import { GoogleAnalytics } from "@next/third-parties/google";
+=======
+import Script from "next/script";
+>>>>>>> 495f53eab6463743075bc431d7645d12bccbfd68
 
 import "./globals.css";
 
@@ -28,11 +32,32 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+<<<<<<< HEAD
+=======
+            <head>
+                <Script
+                    async
+                    src="https://www.googletagmanager.com/gtag/js?id=G-1YF9LGMS8C"
+                />
+
+                <Script id="google-analytics">
+                    {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', ${"G-1YF9LGMS8C"});
+          `}
+                </Script>
+            </head>
+>>>>>>> 495f53eab6463743075bc431d7645d12bccbfd68
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
                 {children}
+<<<<<<< HEAD
                 <GoogleAnalytics gaId="G-XYZ" />
+=======
+>>>>>>> 495f53eab6463743075bc431d7645d12bccbfd68
             </body>
         </html>
     );
