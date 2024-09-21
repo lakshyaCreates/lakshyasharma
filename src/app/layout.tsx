@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
-import { GoogleAnalytics } from "@next/third-parties/google";
-
 import "./globals.css";
 
 const geistSans = localFont({
@@ -28,12 +26,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <head></head>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
                 {children}
-                <GoogleAnalytics gaId="G-XYZ" />
             </body>
         </html>
     );
