@@ -1,8 +1,83 @@
+import { Metadata } from "next";
 import Link from "next/link";
 
 import { Companies, Projects, Social } from "./_chunks";
 import { Blog } from "./_chunks/blog";
 import { info } from "@/info";
+
+export async function generateMetadata(): Promise<Metadata> {
+    return {
+        title: info.about.name,
+        description: info.website.description,
+        generator: "Next.js",
+        applicationName: info.about.name,
+        referrer: "origin-when-cross-origin",
+        keywords: info.website.keywords,
+        authors: [
+            {
+                name: info.about.name,
+                url: info.website.url,
+            },
+        ],
+        creator: info.about.name,
+        publisher: info.about.name,
+        formatDetection: {
+            email: true,
+            address: false,
+            telephone: false,
+            url: true,
+        },
+        metadataBase: new URL(info.website.url),
+        alternates: {
+            canonical: "/",
+        },
+        openGraph: {
+            title: `Portfolio | ${info.about.name}`,
+            description: info.website.description,
+            countryName: "India",
+            url: info.website.url,
+            siteName: `Portfolio | ${info.about.name}`,
+            images: [
+                {
+                    url: "https://lakshyasharma.dev/logos/Black_Text-White_Bg_Rounded.png",
+                    width: 1000,
+                    height: 1000,
+                },
+            ],
+            locale: "en_US",
+            type: "website",
+        },
+        icons: {
+            icon: "/icon.png",
+            apple: "/icon.png",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `Portfolio | ${info.about.name}`,
+            description: info.website.description,
+            creator: "@Lakshya1511",
+            creatorId: "@Lakshya1511",
+        },
+
+        robots: {
+            index: true,
+            follow: true,
+            nocache: true,
+            googleBot: {
+                index: true,
+                follow: true,
+                noimageindex: true,
+                "max-image-preview": "large",
+                "max-video-preview": -1,
+                "max-snippet": -1,
+            },
+        },
+        verification: {
+            google: "google",
+        },
+        category: "Technology",
+    };
+}
 
 export default function RootPage() {
     const data = info.about;

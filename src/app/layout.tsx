@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     },
     openGraph: {},
     robots: {
-        index: false,
+        index: true,
         follow: true,
         nocache: true,
         googleBot: {

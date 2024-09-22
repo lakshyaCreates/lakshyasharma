@@ -22,7 +22,7 @@ export const info = {
     },
     website: {
         url: "https://lakshyasharma.dev",
-        description: `Discover the portfolio of ${name}, an aspiring solopreneur and fullstack developer specializing in creating innovative, high-quality digital solutions. With a strong focus on developing web-applications, SaaS, etc., my portfolio showcases a diverse range of projects, from sleek web designs to powerful web applications. Whether you're looking for creative design, seamless functionality, or strategic problem-solving, you'll find it here. Explore my work, experience, and commitment to excellence. Let’s build something extraordinary together.`,
+        description: `Creating impactful digital solutions | From innovative design to scalable web applications | Creativity, Expertise, and dedication to delivering exceptional results.`,
         keywords: [
             "Next.js",
             "React.js",
