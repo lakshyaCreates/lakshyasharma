@@ -22,7 +22,7 @@ export const info = {
     },
     website: {
         url: "https://lakshyasharma.dev",
-        description: `Creating impactful digital solutions | From innovative design to scalable web applications | Creativity, Expertise, and dedication to delivering exceptional results.`,
+        description: `Solopreneur | Fullstack Developer | Tech Enthusiast | Creating impactful digital solutions | From innovative design to scalable web applications | Creativity, Expertise, and dedication to delivering exceptional results.`,
         keywords: [
             "Next.js",
             "React.js",

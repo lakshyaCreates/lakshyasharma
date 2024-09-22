@@ -7,10 +7,9 @@ import { info } from "@/info";
 
 export async function generateMetadata(): Promise<Metadata> {
     return {
-        title: info.about.name,
         description: info.website.description,
         generator: "Next.js",
-        applicationName: info.about.name,
+        applicationName: `Portfolio | ${info.about.name}`,
         referrer: "origin-when-cross-origin",
         keywords: info.website.keywords,
         authors: [
@@ -85,12 +84,12 @@ export default function RootPage() {
 
     return (
         <div className="flex flex-col space-y-4 py-20">
-            <h2 className="text-4xl font-bold tracking-tight text-foreground/80">
+            <h1 className="text-4xl font-bold tracking-tight text-foreground/80">
                 {data.heading}
-            </h2>
-            <p className="text-lg font-medium leading-snug tracking-tight text-muted-foreground">
+            </h1>
+            <h2 className="text-lg font-medium leading-snug tracking-tight text-muted-foreground">
                 {data.subHeading}
-            </p>
+            </h2>
             <div className="space-y-2 py-6">
                 <p className="text-sm text-foreground/80">
                     Currently playing around with,{" "}

@@ -16,11 +16,12 @@ export const Header = () => {
     return (
         <header className="border-b pb-2">
             <div className="flex w-full items-center justify-between">
-                <div>
-                    <h1 className="text-3xl font-bold tracking-tight text-foreground/80">
-                        {data.name}
-                    </h1>
-                </div>
+                <Link
+                    href={"/"}
+                    className="pointer-events-none text-3xl font-bold leading-[0.98] tracking-tight text-foreground/80"
+                >
+                    {data.name}
+                </Link>
                 <div className="flex items-center gap-x-4">
                     <Link
                         href={data.github.url}

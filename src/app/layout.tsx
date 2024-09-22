@@ -19,7 +19,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
     title: {
         template: `%s | ${info.about.name}`,
-        default: info.about.name,
+        default: `Portfolio | ${info.about.name}`,
     },
     description: info.website.description,
     generator: "Next.js",
