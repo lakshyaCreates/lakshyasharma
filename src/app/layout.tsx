@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 
-import { GoogleAnalytics } from "@next/third-parties/google";
-
 import { Header } from "@/components/Header/header";
 
 import "./globals.css";
@@ -81,8 +79,6 @@ export default function RootLayout({
                         {children}
                     </main>
                 </Providers>
-                {/* TODO! Add GA-ID to env after v1 production is ready */}
-                <GoogleAnalytics gaId="G-1YF9LGMS8C" />
             </body>
         </html>
     );
