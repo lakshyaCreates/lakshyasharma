@@ -71,7 +71,7 @@ export default function RootLayout({
         <html lang="en">
             <head></head>
             <body
-                className={`overflow-x-hidden antialiased ${manrope.className}`}
+                className={`overflow-x-hidden antialiased selection:bg-purple-700/55 ${manrope.className}`}
             >
                 <Providers>
                     <main className="max-w-screen px-[8vw] pt-20 sm:px-[12vw] md:px-[20vw] lg:px-[26vw]">
