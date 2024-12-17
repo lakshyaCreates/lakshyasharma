@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
+import { createContentCollectionPlugin } from "@content-collections/next";
+
 const nextConfig: NextConfig = {
-  /* config options here */
+    /* config options here */
 };
 
-export default nextConfig;
+const withContentCollections = createContentCollectionPlugin({
+    configPath: "./src/content/config.ts",
+});
+
+export default withContentCollections(nextConfig);
