@@ -1,4 +1,5 @@
 import { defineCollection } from "@content-collections/core";
+import { compileMDX } from "@content-collections/mdx";
 
 export const blog = defineCollection({
     name: "blog",
@@ -9,4 +10,11 @@ export const blog = defineCollection({
         description: z.string(),
         slug: z.string(),
     }),
+    transform: async (document, context) => {
+        const body = await compileMDX(context, document);
+        return {
+            ...document,
+            body,
+        };
+    },
 });
