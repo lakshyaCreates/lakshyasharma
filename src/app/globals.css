@@ -103,5 +103,5 @@
 }
 
 .link-preview {
-    @apply !text-foreground/80 underline transition-colors duration-150 ease-in hover:!text-foreground;
+    @apply underline font-medium;
 }
