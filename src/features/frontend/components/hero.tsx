@@ -5,28 +5,47 @@ import {
     FaInstagram,
     FaStackOverflow,
 } from "react-icons/fa6";
+import { FaRss } from "react-icons/fa6";
 import { MdMailOutline } from "react-icons/md";
 
 import Link from "next/link";
 
 import { LinkPreview } from "@/components/aceternity/link-preview";
+import { ThemeToggler } from "@/components/theme-toggler";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 export const Hero = () => {
     return (
         <div className="flex flex-col items-start justify-start gap-y-6">
-            <p className="text-sm font-semibold underline">lakshyasharma.dev</p>
+            <p className="text-sm font-medium text-neutral-700 underline dark:text-neutral-200">
+                lakshyasharma.dev
+            </p>
             <div className="flex w-full flex-col">
-                <h1 className="text-3xl font-semibold tracking-tight md:font-bold lg:text-4xl">
-                    Lakshya Sharma
-                </h1>
+                <div className="flex items-center justify-between">
+                    <h1 className="text-3xl font-semibold tracking-tight md:font-bold lg:text-4xl">
+                        Lakshya Sharma
+                    </h1>
+                    <div className="flex items-center gap-x-1">
+                        <Button
+                            asChild
+                            size={"icon"}
+                            variant={"ghost"}
+                            className="rounded-full"
+                        >
+                            <Link href={""}>
+                                <FaRss />
+                            </Link>
+                        </Button>
+                        <ThemeToggler />
+                    </div>
+                </div>
                 <div className="text-muted-foreground">
                     I perform daily rituals of caffeine & code to appease to the
                     digital gods
                 </div>
             </div>
-            <div className="max-w-2xl tracking-wide text-neutral-300">
+            <div className="max-w-2xl tracking-wide text-neutral-700 dark:text-neutral-300">
                 Hey! I'm Lakshya Sharma, currently pursuing my B.Tech at{" "}
                 <LinkPreview
                     url="https://www.ganpatuniversity.ac.in/"
@@ -74,7 +93,7 @@ export const Hero = () => {
                             <LinkPreview
                                 key={idx}
                                 url={tag.href}
-                                className="!text-muted-foreground transition-colors duration-150 ease-in hover:!text-white"
+                                className="!text-muted-foreground transition-colors duration-150 ease-in hover:!text-black dark:hover:!text-white"
                             >
                                 <span className="group-hover:!text-white">
                                     {tag.label}
