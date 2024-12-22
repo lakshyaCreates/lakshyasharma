@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer base {
     :root {
         --background: 0 0% 100%;
@@ -97,12 +93,15 @@ body {
 }
 
 #main::-webkit-scrollbar-thumb {
-    @apply bg-accent rounded-3xl;
+    @apply rounded-3xl bg-accent;
 }
 
 #main::-webkit-scrollbar-track {
-    @apply bg-transparent rounded-full ;
+    @apply rounded-full bg-transparent;
     background: transparent;
     margin-block: 0.5rem;
+}
 
+.link-preview {
+    @apply !text-foreground/80 underline transition-colors duration-150 ease-in hover:!text-foreground;
 }

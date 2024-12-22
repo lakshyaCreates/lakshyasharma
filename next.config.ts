@@ -5,6 +5,11 @@ import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
     /* config options here */
+    images: {
+        domains: [
+            "api.microlink.io", // Microlink Image Preview
+        ],
+    },
 };
 
 const withContentCollections = createContentCollectionPlugin({
