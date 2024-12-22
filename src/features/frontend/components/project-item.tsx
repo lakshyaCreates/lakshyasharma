@@ -86,12 +86,12 @@ export const ProjectItem = ({
                     ))}
                 </div>
                 <div className="wrap flex items-center gap-1">
-                    <Button asChild size={"sm"} variant={"default"}>
+                    {/* <Button asChild size={"sm"} variant={"default"}>
                         <Link href={url} className="group flex items-center">
                             <span>View</span>
                             <FaArrowRight className="-ml-1 scale-75 transition-transform duration-150 ease-in group-hover:translate-x-0.5" />
                         </Link>
-                    </Button>
+                    </Button> */}
                     {socials.map((item, idx) => (
                         <Button
                             asChild
