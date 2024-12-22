@@ -1,4 +1,6 @@
+import { Header } from "@/components/header";
 import { StaticNoise } from "@/components/static-noise";
+import { Separator } from "@/components/ui/separator";
 import { Hero } from "@/features/frontend/components/hero";
 
 export default function PortfolioLayout({
@@ -23,8 +25,10 @@ export default function PortfolioLayout({
                     </div>
                     <div
                         id="main"
-                        className="relative flex w-full max-w-full flex-col lg:h-full lg:overflow-y-scroll"
+                        className="relative flex w-full max-w-full flex-col overflow-x-hidden lg:h-full lg:overflow-y-scroll"
                     >
+                        <Header />
+                        <Separator className="mx-1 my-4" />
                         {children}
                     </div>
                 </div>
