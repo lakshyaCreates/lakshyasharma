@@ -101,6 +101,9 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.1.5
         version: 1.1.5(@types/react-dom@19.0.2(@types/react@19.0.1))(@types/react@19.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@t3-oss/env-nextjs':
+        specifier: ^0.11.1
+        version: 0.11.1(typescript@5.7.2)(zod@3.24.1)
       '@theme-toggles/react':
         specifier: ^4.1.0
         version: 4.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -1608,6 +1611,24 @@ packages:
 
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
+
+  '@t3-oss/env-core@0.11.1':
+    resolution: {integrity: sha512-MaxOwEoG1ntCFoKJsS7nqwgcxLW1SJw238AJwfJeaz3P/8GtkxXZsPPolsz1AdYvUTbe3XvqZ/VCdfjt+3zmKw==}
+    peerDependencies:
+      typescript: '>=5.0.0'
+      zod: ^3.0.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
+  '@t3-oss/env-nextjs@0.11.1':
+    resolution: {integrity: sha512-rx2XL9+v6wtOqLNJbD5eD8OezKlQD1BtC0WvvtHwBgK66jnF5+wGqtgkKK4Ygie1LVmoDClths2T4tdFmRvGrQ==}
+    peerDependencies:
+      typescript: '>=5.0.0'
+      zod: ^3.0.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   '@theme-toggles/react@4.1.0':
     resolution: {integrity: sha512-h3SuJMsej8DfelHt5fjNIlaMfJOK52Vku4pPDVoHaTwjAcoTr4fn8hzeur2oiqWBYFYfKugvv1RdQaBFXaiPKg==}
@@ -5285,6 +5306,19 @@ snapshots:
   '@swc/helpers@0.5.15':
     dependencies:
       tslib: 2.8.1
+
+  '@t3-oss/env-core@0.11.1(typescript@5.7.2)(zod@3.24.1)':
+    dependencies:
+      zod: 3.24.1
+    optionalDependencies:
+      typescript: 5.7.2
+
+  '@t3-oss/env-nextjs@0.11.1(typescript@5.7.2)(zod@3.24.1)':
+    dependencies:
+      '@t3-oss/env-core': 0.11.1(typescript@5.7.2)(zod@3.24.1)
+      zod: 3.24.1
+    optionalDependencies:
+      typescript: 5.7.2
 
   '@theme-toggles/react@4.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
