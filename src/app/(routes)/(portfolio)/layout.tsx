@@ -25,10 +25,12 @@ export default function PortfolioLayout({
                     </div>
                     <div
                         id="main"
-                        className="relative flex w-full max-w-full flex-col overflow-x-hidden lg:h-full lg:overflow-y-scroll"
+                        className="relative flex w-full max-w-5xl flex-col overflow-x-hidden lg:h-full lg:overflow-y-scroll"
                     >
                         <Header />
-                        <Separator className="mx-1 my-4" />
+                        <div className="px-1">
+                            <Separator className="my-4 w-full" />
+                        </div>
                         {children}
                     </div>
                 </div>

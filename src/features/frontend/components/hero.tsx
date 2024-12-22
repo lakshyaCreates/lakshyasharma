@@ -14,13 +14,17 @@ import { LinkPreview } from "@/components/aceternity/link-preview";
 import { ThemeToggler } from "@/components/theme-toggler";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { env } from "@/env/client";
 
 export const Hero = () => {
     return (
         <div className="flex flex-col items-start justify-start gap-y-6">
-            <p className="text-sm font-medium text-neutral-700 underline dark:text-neutral-200">
+            <Link
+                href={`${env.NEXT_PUBLIC_BASE_URL}`}
+                className="text-sm font-medium text-neutral-700 underline dark:text-neutral-200"
+            >
                 lakshyasharma.dev
-            </p>
+            </Link>
             <div className="flex w-full flex-col">
                 <div className="flex items-center justify-between">
                     <h1 className="text-3xl font-semibold tracking-tight md:font-bold lg:text-4xl">

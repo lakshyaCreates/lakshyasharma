@@ -20,7 +20,7 @@ export function Nav() {
         setElementFocused(index);
     };
     return (
-        <nav className="flex flex-col sm:flex-row">
+        <nav className="flex flex-row flex-wrap">
             {dataButtons.map((button, index) => (
                 <button
                     className={cn(
