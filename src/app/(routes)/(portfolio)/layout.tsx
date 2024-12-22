@@ -9,7 +9,7 @@ export default function PortfolioLayout({
     return (
         <>
             <StaticNoise
-                opacity={0.05}
+                opacity={0.09}
                 className="pointer-events-none fixed left-0 top-0 z-[99999] h-full"
                 draggable={false}
             />
