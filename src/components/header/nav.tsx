@@ -1,9 +1,10 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 
@@ -14,7 +15,19 @@ const dataButtons = [
     { label: "Blog", href: "/blog" },
 ];
 export function Nav() {
+    const pathname = usePathname();
     const [elementFocused, setElementFocused] = useState<number>(0);
+
+    useEffect(() => {
+        // Set the focused element based on the current path
+        const currentPath = `${pathname || ""}`; // Get the current path from params
+        const activeIndex = dataButtons.findIndex(
+            (button) => button.href === currentPath,
+        );
+        if (activeIndex !== -1) {
+            setElementFocused(activeIndex);
+        }
+    }, [pathname, elementFocused]);
 
     const handleOnClickButton = (index: number) => {
         setElementFocused(index);
