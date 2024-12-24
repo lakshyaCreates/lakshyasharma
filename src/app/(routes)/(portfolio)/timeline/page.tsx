@@ -22,7 +22,7 @@ export default function TimelinePage() {
                         )}
                     />
 
-                    <div className="ml-7">
+                    <div className="ml-7 w-full">
                         <span className="rounded border bg-accent px-2 py-1 text-sm font-medium">
                             {timeline.title}
                         </span>
