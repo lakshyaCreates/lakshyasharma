@@ -7,9 +7,13 @@ import { cn } from "@/lib/utils";
 import { MDX } from "@/components/mdx";
 
 export default function TimelinePage() {
+    const sortedTimelines = allTimelines.sort(
+        (a, b) => b.date.getTime() - a.date.getTime(),
+    );
+
     return (
         <div className="prose dark:prose-invert">
-            {allTimelines.map((timeline, idx) => (
+            {sortedTimelines.map((timeline, idx) => (
                 <div key={timeline._meta.fileName} className="relative pb-12">
                     <span className="absolute left-2 top-3 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary" />
                     {idx != allTimelines.length - 1 && (

@@ -11,6 +11,7 @@ export const timeline = defineCollection({
     schema: (z) => ({
         title: z.string(),
         status: z.enum(["draft", "published"]),
+        date: z.coerce.date(),
     }),
     transform: async (timeline, ctx) => {
         const mdx = await compileMDX(ctx, timeline, {
