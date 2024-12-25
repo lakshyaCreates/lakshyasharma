@@ -11,6 +11,7 @@ import { MdMailOutline } from "react-icons/md";
 import Link from "next/link";
 
 import { LinkPreview } from "@/components/aceternity/link-preview";
+import { ScheduleCal } from "@/components/cal";
 import { ThemeToggler } from "@/components/theme-toggler";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -67,7 +68,7 @@ export const Hero = () => {
                 - a B2B digital agency that helps businesses grow online.
             </div>
             <div className="flex flex-wrap items-center gap-2">
-                <Button size="default">Schedule a call</Button>
+                <ScheduleCal />
                 <Button asChild size="default" variant={"outline"}>
                     <Link
                         download="/resume.pdf"
