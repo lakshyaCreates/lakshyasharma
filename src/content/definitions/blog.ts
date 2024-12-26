@@ -4,15 +4,19 @@ import { compileMDX } from "@content-collections/mdx";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
-export const blog = defineCollection({
-    name: "blog",
-    directory: "./blog",
+export const blogs = defineCollection({
+    name: "blogs",
+    directory: "./blogs",
     include: "**/*.mdx",
     schema: (z) => ({
         title: z.string(),
         description: z.string(),
+        imageDark: z.string(),
+        imageLight: z.string(),
         slug: z.string(),
-        status: z.enum(["draft", "published"]),
+        date: z.coerce.date(),
+        published: z.boolean(),
+        tags: z.array(z.string()),
     }),
     transform: async (blog, ctx) => {
         const mdx = await compileMDX(ctx, blog, {
@@ -38,7 +42,7 @@ export const blog = defineCollection({
                 mdx,
                 raw: blog.content,
             },
-            url: `/blog/${blog.slug}`,
+            url: `/blogs/${blog.slug}`,
         };
     },
 });

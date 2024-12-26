@@ -31,7 +31,7 @@ export default function RootLayout({
         <html lang="en">
             <body
                 className={cn(
-                    `relative scroll-smooth bg-background p-6 antialiased lg:h-screen lg:overflow-hidden`,
+                    `relative scroll-smooth bg-background p-6 antialiased lg:h-screen lg:overflow-x-hidden`,
                     geistSans.className,
                 )}
             >
