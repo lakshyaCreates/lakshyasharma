@@ -8,7 +8,7 @@
         "start": "next start",
         "lint": "next lint",
         "ui:add": "pnpm dlx shadcn@latest add",
-        "prebuild": "tsx rss.ts"
+        "prebuild": "content-collections --config ./src/content/config.ts build && tsx rss.ts"
     },
     "dependencies": {
         "@calcom/embed-react": "^1.5.2",
@@ -76,6 +76,7 @@
         "zod": "^3.24.1"
     },
     "devDependencies": {
+        "@content-collections/cli": "^0.1.6",
         "@content-collections/core": "^0.7.3",
         "@content-collections/next": "^0.2.4",
         "@eslint/eslintrc": "^3",
