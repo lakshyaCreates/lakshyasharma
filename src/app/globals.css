@@ -87,16 +87,19 @@
     @apply w-0 opacity-0;
 }
 
-#main::-webkit-scrollbar {
+#main::-webkit-scrollbar,
+article#blog::-webkit-scrollbar {
     @apply w-1.5 rounded-3xl opacity-0;
     background: transparent;
 }
 
-#main::-webkit-scrollbar-thumb {
+#main::-webkit-scrollbar-thumb,
+article#blog::-webkit-scrollbar-thumb {
     @apply rounded-3xl bg-accent;
 }
 
-#main::-webkit-scrollbar-track {
+#main::-webkit-scrollbar-track,
+article#blog::-webkit-scrollbar-track {
     @apply rounded-full bg-transparent;
     background: transparent;
     margin-block: 0.5rem;

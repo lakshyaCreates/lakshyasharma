@@ -12,7 +12,7 @@ const dataButtons = [
     { label: "Projects", href: "/projects" },
     { label: "Experience", href: "/experience" },
     { label: "Timeline", href: "/timeline" },
-    { label: "Blog", href: "/blog" },
+    { label: "Blog", href: "/blogs" },
 ];
 export function Nav() {
     const pathname = usePathname();

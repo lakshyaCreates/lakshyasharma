@@ -1,0 +1,124 @@
+---
+title: Introduction to On-Demand Data Revalidation in Next.js 15
+description: This article explains how to use authjs with Next.js 15, using Prisma.
+slug: introduction-to-on-demand-data-revalidation-in-nextjs-15
+imageDark: /assets/01-dark.jpg
+imageLight: /assets/01-light.jpg
+date: 2024-12-26
+tags: ["Next.js", "TypeScript", "Fathom", "Analytics", "Prisma"]
+published: true
+---
+We will explore how to integrate analytic tools such as [Google Analytics](https://analytics.google.com), [Matomo](https://matomo.org) or [Fathom](https://usefathom.com/) with the Next.js 13 app directory.
+In this article we will use [Fathom](https://usefathom.com/), but the same principles could be applied to [Google Analytics](https://analytics.google.com), [Matomo](https://matomo.org) or similar tools.
+
+{/* <Notification type="info" title="Update"> */}
+  In the case of [Fathom](https://usefathom.com/), I have since found a [simpler solution](#fathom-spa-mode).
+  But the solution described here should still work and especially with adaptations for other tools.
+{/* </Notification> */}
+
+The new app directory of Next.js 13 comes with a lot of exiting new features,
+but the new router (`next/navigation`) unfortunately does not support events.
+
+So we have to track route changes by ourselves.
+My first idea was to use the history api, but the history api does not send events for route changes!
+
+The last option we have now is to override the pushState method and send an custom event:
+
+```js
+var pushState = history.pushState;
+history.pushState = function (state) {
+  var result = pushState.apply(history, arguments);
+  window.dispatchEvent(new Event("routeChange", state));
+  return result;
+};
+```
+
+The snippet above overrides the `pushState`, calls the original function and
+sends a `routeChange` event afterwards.
+
+## Next.js
+
+In Next.js we could use our method with the `Script` tag:
+
+```tsx app/layout.tsx focus=2:3,9:19
+import { FC, PropsWithChildren } from "react";
+import Script from "next/script";
+import Analytics from "./Analytics";
+
+const RootLayout: FC<PropsWithChildren> = ({ children }) => (
+  <html>
+    <body>
+      <main>{children}</main>
+      <Analytics />
+      <Script id="onRouteChange">{`
+        (function (history) {
+          var pushState = history.pushState;
+          history.pushState = function(state){
+            var result = pushState.apply(history, arguments);
+            window.dispatchEvent(new Event("routeChange", state));
+            return result;
+          };
+        })(window.history);
+      `}</Script>
+    </body>
+  </html>
+);
+
+export default RootLayout;
+```
+
+And now we are able to notify fathom about the route changes.
+We do this with a custom component (`Analytics`), which is used in our root layout (see snippet above).
+
+```tsx app/app/analytics.tsx
+"use client";
+
+import { useEffect } from "react";
+import * as Fathom from "fathom-client";
+
+const Analytics = () => {
+  useEffect(() => {
+    Fathom.load("YOUR_FATHOM_TRACKING_CODE", {
+      includedDomains: ["yourdomain.com"],
+    });
+
+    const onRouteChange = () => Fathom.trackPageview();
+
+    window.addEventListener("routeChange", onRouteChange);
+    return () => window.removeEventListener("routeChange", onRouteChange);
+  }, []);
+
+  return null;
+};
+
+export default Analytics;
+```
+
+We have to use a custom component instead of a hook in order to annotate the component with [use client](https://beta.nextjs.org/docs/rendering/server-and-client-components#client-components).
+
+## Fathom SPA mode
+
+The method described in this post can be significantly simplified for [Fathom](https://usefathom.com).
+I'm not sure if Fathom introduced the feature after writing the post or if I just missed it.
+Fathom has a [SPA mode](https://usefathom.com/docs/script/script-advanced#spa) that does the same thing we did in our script.
+So we can remove the script from the layout and simplify our Analytics component as follows:
+
+```tsx app/Analytics.tsx
+"use client";
+
+import { useEffect } from "react";
+import * as Fathom from "fathom-client";
+
+const Analytics = () => {
+  useEffect(() => {
+    Fathom.load("YOUR_FATHOM_TRACKING_CODE", {
+      includedDomains: ["yourdomain.com"],
+      spa: "auto"
+    });
+  }, []);
+
+  return null;
+};
+
+export default Analytics;
+```
