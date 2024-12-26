@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://lakshyasharma.dev</id>
+    <title>Blogs | Lakshya Sharma</title>
+    <updated>2024-12-26T21:32:28.138Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <author>
+        <name>Lakshya Sharma</name>
+        <email>lakshya.creates07@gmail.com</email>
+        <uri>https://lakshyasharma.dev</uri>
+    </author>
+    <link rel="alternate" href="https://lakshyasharma.dev"/>
+    <link rel="self" href="https://lakshyasharma.dev/rss.xml"/>
+    <subtitle>Hey! I am Lakshya Sharma, and its my personal blog where I share my learnings, experiences, and thought regarding the full stack web dev</subtitle>
+    <logo>https://lakshyasharma.dev/assets/logo.png</logo>
+    <icon>https://lakshyasharma.dev/assets/favicon.png</icon>
+    <rights>All Rights Reserved 2024, Lakshya Sharma</rights>
+    <category term="Web Development"/>
+    <category term="Next.js"/>
+    <entry>
+        <title type="html"><![CDATA[Advanced Auth.js Implementation in Next.js]]></title>
+        <id>https://lakshyasharma.dev/blogs/advanced-authjs-implementation-in-nextjs</id>
+        <link href="https://lakshyasharma.dev/blogs/advanced-authjs-implementation-in-nextjs"/>
+        <updated>2024-12-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This article explains how to use authjs with Next.js 15, using Prisma.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How to setup Content Collections in Next.js]]></title>
+        <id>https://lakshyasharma.dev/blogs/how-to-setup-content-collections-in-nextjs</id>
+        <link href="https://lakshyasharma.dev/blogs/how-to-setup-content-collections-in-nextjs"/>
+        <updated>2024-12-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This article explains how to use authjs with Next.js 15, using Prisma.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Introduction to On-Demand Data Revalidation in Next.js 15]]></title>
+        <id>https://lakshyasharma.dev/blogs/introduction-to-on-demand-data-revalidation-in-nextjs-15</id>
+        <link href="https://lakshyasharma.dev/blogs/introduction-to-on-demand-data-revalidation-in-nextjs-15"/>
+        <updated>2024-12-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This article explains how to use authjs with Next.js 15, using Prisma.]]></summary>
+    </entry>
+</feed>

@@ -38,7 +38,10 @@ export const Hero = () => {
                             variant={"ghost"}
                             className="rounded-full"
                         >
-                            <Link href={""}>
+                            <Link
+                                href={`${env.NEXT_PUBLIC_BASE_URL}/feed`}
+                                type="application/xml"
+                            >
                                 <FaRss />
                             </Link>
                         </Button>
