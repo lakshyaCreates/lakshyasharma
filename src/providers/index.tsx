@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { ScheduleCalFloat } from "@/components/cal";
@@ -16,6 +17,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
                 {children}
                 <ScheduleCalFloat />
                 <SpeedInsights />
+                <Analytics />
             </ThemeProvider>
         </>
     );
