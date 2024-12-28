@@ -1,10 +1,4 @@
-import {
-    FaLinkedin,
-    FaXTwitter,
-    FaGithub,
-    FaInstagram,
-    FaStackOverflow,
-} from "react-icons/fa6";
+import { FaLinkedin, FaXTwitter, FaGithub, FaInstagram } from "react-icons/fa6";
 import { FaRss } from "react-icons/fa6";
 import { MdMailOutline } from "react-icons/md";
 
@@ -15,6 +9,12 @@ import { ScheduleCal } from "@/components/cal";
 import { ThemeToggler } from "@/components/theme-toggler";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { env } from "@/env/client";
 
 export const Hero = () => {
@@ -53,44 +53,46 @@ export const Hero = () => {
                     digital gods
                 </div>
             </div>
-            <div className="max-w-2xl tracking-wide text-neutral-700 dark:text-neutral-300">
-                Hey! I'm Lakshya Sharma, currently pursuing my B.Tech at{" "}
-                <LinkPreview
-                    url="https://www.ganpatuniversity.ac.in/"
-                    className="link-preview"
-                >
-                    Ganpat University
-                </LinkPreview>{" "}
-                I also am the founder of{" "}
-                <LinkPreview
-                    url="https://lakshyasharma.dev"
-                    className="link-preview"
-                >
-                    Mighty Suite
-                </LinkPreview>{" "}
-                - a B2B digital agency that helps businesses grow online.
+            <div className="max-w-2xl tracking-wide text-neutral-700 dark:text-neutral-300 [&>span]:font-semibold [&>span]:text-primary">
+                Hi! I'm a <span>software engineer</span> & an{" "}
+                <span>open source enthusiast</span> building digital solutions
+                that scale. Currently pursuing B.Tech while actively{" "}
+                <span>contributing</span> to the tech ecosystem through client
+                solutions and <span>community projects</span>
             </div>
             <div className="flex flex-wrap items-center gap-2">
                 <ScheduleCal />
-                <Button asChild size="default" variant={"outline"}>
-                    <Link
-                        download="/resume.pdf"
-                        target="_blank"
-                        href={"/resume.pdf"}
-                    >
-                        Resume
-                    </Link>
-                </Button>
+                <TooltipProvider>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Button asChild size="default" variant={"outline"}>
+                                <Link
+                                    download="/Resume-Lakshya_Sharma.pdf"
+                                    target="_blank"
+                                    href={"/Resume-Lakshya_Sharma.pdf"}
+                                >
+                                    Resume
+                                </Link>
+                            </Button>
+                        </TooltipTrigger>
+                        <TooltipContent className="border bg-background text-primary">
+                            Last Updated -{" "}
+                            <span className="font-medium">
+                                December 28, 2024
+                            </span>
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
                 {socials.map((item, index) => (
                     <Button asChild key={index} size="icon" variant={"outline"}>
-                        <LinkPreview url={item.href}>
+                        <Link href={item.href}>
                             <item.Icon className="size-full" />
-                        </LinkPreview>
+                        </Link>
                     </Button>
                 ))}
             </div>
             <Separator />
-            <div className="flex flex-col gap-2">
+            <div className="flex max-w-[95%] flex-col gap-2">
                 {skills.map((item, idx) => (
                     <div
                         key={idx}
@@ -121,7 +123,7 @@ export const Hero = () => {
 const socials = [
     {
         Icon: MdMailOutline,
-        href: "https://github.com/lakshyaCreates",
+        href: "mailto:lakshya.creates07@gmail.com",
     },
     {
         Icon: FaGithub,
@@ -129,20 +131,20 @@ const socials = [
     },
     {
         Icon: FaXTwitter,
-        href: "https://github.com/lakshyaCreates",
+        href: "https://x.com/Lakshya1511",
     },
     {
         Icon: FaLinkedin,
-        href: "https://github.com/lakshyaCreates",
+        href: "https://www.linkedin.com/in/lakshyasharma07/",
     },
     {
         Icon: FaInstagram,
-        href: "https://github.com/lakshyaCreates",
+        href: "https://www.instagram.com/nopzy07/",
     },
-    {
-        Icon: FaStackOverflow,
-        href: "https://github.com/lakshyaCreates",
-    },
+    // {
+    //     Icon: FaStackOverflow,
+    //     href: "https://github.com/lakshyaCreates",
+    // },
 ];
 
 const skills = [
@@ -167,7 +169,7 @@ const skills = [
             },
             {
                 label: "Django",
-                href: "https://nextjs.org",
+                href: "https://djangoproject.com",
             },
         ],
     },
@@ -180,28 +182,32 @@ const skills = [
                 href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
             },
             {
-                label: "Next.js",
-                href: "https://nextjs.org",
+                label: "TypeScript",
+                href: "https://www.typescriptlang.org/",
             },
             {
                 label: "Express.js",
-                href: "",
+                href: "https://expressjs.com",
             },
             {
                 label: "Hono.js",
-                href: "",
+                href: "https://hono.dev",
+            },
+            {
+                label: "GraphQL",
+                href: "https://graphql.org",
             },
             {
                 label: "FastAPI",
-                href: "",
+                href: "https://fastapi.tiangolo.com/",
             },
             {
                 label: "Flask",
-                href: "",
+                href: "https://flask.palletsprojects.com/en/stable/",
             },
             {
                 label: "Django",
-                href: "",
+                href: "https://djangoproject.com",
             },
         ],
     },
@@ -220,7 +226,6 @@ const skills = [
                 label: "Motion",
                 href: "https://motion.dev",
             },
-
             {
                 label: "GSAP",
                 href: "https://gsap.com/",
@@ -230,6 +235,10 @@ const skills = [
     {
         label: "Utils",
         tags: [
+            {
+                label: "Zod",
+                href: "https://zod.dev",
+            },
             {
                 label: "Zustand",
                 href: "https://zustand-demo.pmnd.rs/",
@@ -245,11 +254,58 @@ const skills = [
         ],
     },
     {
+        label: "Docs",
+        tags: [
+            {
+                label: "Docusaurus",
+                href: "https://docusaurus.io/",
+            },
+            {
+                label: "Nextra",
+                href: "https://nextra.site",
+            },
+            {
+                label: "Fuma Docs",
+                href: "https://fumadocs.vercel.app/",
+            },
+            {
+                label: "Mintlify",
+                href: "https://mintlify.com",
+            },
+        ],
+    },
+    {
+        label: "CMS",
+        tags: [
+            {
+                label: "Content Collections",
+                href: "https://content-collections.dev",
+            },
+            { label: "Strapi", href: "https://strapi.io/" },
+            {
+                label: "Sanity",
+                href: "https://www.sanity.io/",
+            },
+            {
+                label: "Contentful",
+                href: "https://www.contentful.com/",
+            },
+            {
+                label: "Payload 3.0",
+                href: "https://payloadcms.com/",
+            },
+        ],
+    },
+    {
         label: "More",
         tags: [
             {
                 label: "Turborepo",
-                href: "https://turborepo.build",
+                href: "https://turbo.build",
+            },
+            {
+                label: "MDX",
+                href: "https://mdxjs.com/",
             },
         ],
     },
