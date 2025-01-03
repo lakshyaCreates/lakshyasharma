@@ -1,9 +1,23 @@
+import { Metadata } from "next";
+
+import { allBlogs } from "content-collections";
+
 import { Header } from "@/components/header";
 import { StaticNoise } from "@/components/static-noise";
 import { Separator } from "@/components/ui/separator";
 import { Hero } from "@/features/frontend/components/hero";
 
 import { AllBlogs } from "./all-blogs";
+
+export async function generateMetadata(): Promise<Metadata> {
+    return {
+        title: "Blogs",
+        description:
+            "Explore Lakshya Sharma's blog, where he shares insights on modern web development, full-stack projects, and open-source contributions, offering value to developers.",
+        keywords: allBlogs.map((blog) => blog.tags).flat(),
+        category: "Blog",
+    };
+}
 
 export default function Blog() {
     return (

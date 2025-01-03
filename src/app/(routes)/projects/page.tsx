@@ -1,9 +1,28 @@
+import { Metadata } from "next";
+
 import HomePage from "../(portfolio)/page";
 
 import { Header } from "@/components/header";
 import { StaticNoise } from "@/components/static-noise";
 import { Separator } from "@/components/ui/separator";
+import { allProjects } from "@/content/.content-collections/generated";
 import { Hero } from "@/features/frontend/components/hero";
+
+export async function generateMetadata(): Promise<Metadata> {
+    return {
+        title: "Projects",
+        description:
+            "Discover Lakshya Sharma's projects, showcasing innovative full-stack applications, open-source contributions, and creative solutions built with cutting-edge technologies.",
+        keywords: [
+            "Projects",
+            "Portfolio",
+            "Full-stack",
+            "Web Development",
+            "Open-source",
+        ],
+        category: "Portfolio",
+    };
+}
 
 export default function ProjectsPage() {
     return (

@@ -1,9 +1,28 @@
+import { Metadata } from "next";
+
 import {
     ExperienceItem,
     ExperienceItemProps,
     LocationTag,
     TimeTag,
 } from "@/features/frontend/components/experience-item";
+
+export async function generateMetadata(): Promise<Metadata> {
+    return {
+        title: "Experience",
+        description:
+            "Explore Lakshya Sharma's professional experience, highlighting his diverse roles and expertise in development, leadership, and innovative solutions in hybrid work environments.",
+        keywords: [
+            "Resume",
+            "Portfolio",
+            "Experience",
+            "Work",
+            "Professional",
+            "Lakshya",
+            "Sharma",
+        ],
+    };
+}
 
 export default function ExperiencePage() {
     return (

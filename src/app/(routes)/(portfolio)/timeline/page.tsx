@@ -1,10 +1,18 @@
-"use client";
+import { Metadata } from "next";
 
 import { allTimelines } from "content-collections";
 
 import { cn } from "@/lib/utils";
 
 import { MDX } from "@/components/mdx";
+
+export async function generateMetadata(): Promise<Metadata> {
+    return {
+        title: "Timeline",
+        description:
+            "A developer's documentation of daily learnings, showcasing technical explorations, project improvements, and hands-on experience in web development.",
+    };
+}
 
 export default function TimelinePage() {
     const sortedTimelines = allTimelines.sort(
