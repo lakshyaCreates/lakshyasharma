@@ -43,3 +43,8 @@ next-env.d.ts
 
 # content-collections build
 .content-collections
+
+# rss feed
+atom.xml
+rss.json
+rss.xml
