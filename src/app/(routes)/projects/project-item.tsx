@@ -38,7 +38,7 @@ export const ProjectItem = ({
                 size={96}
             />
             <div className="z-10 col-span-1 flex flex-col justify-between gap-y-2 xl:col-span-3">
-                <div className="flex flex-col gap-y-2">
+                <div className="flex flex-col flex-nowrap gap-y-2">
                     <Link
                         href={url}
                         className="group flex flex-wrap items-center gap-2"
@@ -46,23 +46,16 @@ export const ProjectItem = ({
                         <h3 className="mt-0.5 text-xl font-bold tracking-tight text-foreground">
                             {title}
                         </h3>
-                        <TooltipProvider>
-                            <Tooltip>
-                                <TooltipTrigger>
-                                    <span className="rounded border bg-accent px-1.5 py-1 text-xs">
-                                        {date.toLocaleDateString("en-US", {
-                                            month: "long",
-                                            day: "numeric",
-                                            year: "numeric",
-                                        })}
-                                    </span>
-                                </TooltipTrigger>
-                                <TooltipContent className="border bg-background text-foreground">
-                                    Last Updated
-                                </TooltipContent>
-                            </Tooltip>
-                        </TooltipProvider>
-                        <FaCaretRight className="-translate-x-4 rotate-180 scale-[0.9] text-muted-foreground opacity-0 transition-all duration-150 ease-in group-hover:-translate-x-1 group-hover:-rotate-0 group-hover:opacity-100 dark:text-primary" />
+                        <div className="flex items-center gap-1">
+                            <p className="rounded border bg-accent px-1.5 py-1 text-xs">
+                                {date.toLocaleDateString("en-US", {
+                                    month: "long",
+                                    day: "numeric",
+                                    year: "numeric",
+                                })}
+                            </p>
+                            <FaCaretRight className="-translate-x-4 rotate-180 scale-[0.9] text-muted-foreground opacity-0 transition-all duration-150 ease-in group-hover:-translate-x-1 group-hover:-rotate-0 group-hover:opacity-100 dark:text-primary" />
+                        </div>
                     </Link>
                     <p className="text-sm text-muted-foreground">
                         {description}
