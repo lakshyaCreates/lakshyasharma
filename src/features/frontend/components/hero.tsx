@@ -1,9 +1,11 @@
 import { FaLinkedin, FaXTwitter, FaGithub, FaInstagram } from "react-icons/fa6";
 import { FaRss } from "react-icons/fa6";
 import { MdMailOutline } from "react-icons/md";
-import { PiReadCvLogo } from "react-icons/pi"
+import { PiReadCvLogo } from "react-icons/pi";
 
 import Link from "next/link";
+
+import { site } from "@/lib/site";
 
 import { LinkPreview } from "@/components/aceternity/link-preview";
 import { ScheduleCal } from "@/components/cal";
@@ -16,13 +18,12 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { env } from "@/env/client";
 
 export const Hero = () => {
     return (
         <div className="flex flex-col items-start justify-start gap-y-6">
             <Link
-                href={`${env.NEXT_PUBLIC_BASE_URL}`}
+                href={`${site.siteUrl}`}
                 className="text-sm font-medium text-neutral-700 underline dark:text-neutral-200"
             >
                 lakshyasharma.dev
@@ -40,7 +41,7 @@ export const Hero = () => {
                             className="rounded-full"
                         >
                             <Link
-                                href={`${env.NEXT_PUBLIC_BASE_URL}/feed`}
+                                href={`${site.siteUrl}/feed`}
                                 type="application/xml"
                             >
                                 <FaRss />
@@ -66,13 +67,18 @@ export const Hero = () => {
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <Button asChild size="default" variant={"outline"} className="group">
+                            <Button
+                                asChild
+                                size="default"
+                                variant={"outline"}
+                                className="group"
+                            >
                                 <Link
                                     download="/Resume-Lakshya_Sharma.pdf"
                                     target="_blank"
                                     href={"/Resume-Lakshya_Sharma.pdf"}
                                 >
-                                    <PiReadCvLogo className="group-hover:-rotate-12 transition-all duration-150 ease-in" />
+                                    <PiReadCvLogo className="transition-all duration-150 ease-in group-hover:-rotate-12" />
                                     Resume
                                 </Link>
                             </Button>
