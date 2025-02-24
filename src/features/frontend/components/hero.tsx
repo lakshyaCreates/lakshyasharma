@@ -1,6 +1,7 @@
 import { FaLinkedin, FaXTwitter, FaGithub, FaInstagram } from "react-icons/fa6";
 import { FaRss } from "react-icons/fa6";
 import { MdMailOutline } from "react-icons/md";
+import { PiReadCvLogo } from "react-icons/pi"
 
 import Link from "next/link";
 
@@ -65,12 +66,13 @@ export const Hero = () => {
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <Button asChild size="default" variant={"outline"}>
+                            <Button asChild size="default" variant={"outline"} className="group">
                                 <Link
                                     download="/Resume-Lakshya_Sharma.pdf"
                                     target="_blank"
                                     href={"/Resume-Lakshya_Sharma.pdf"}
                                 >
+                                    <PiReadCvLogo className="group-hover:-rotate-12 transition-all duration-150 ease-in" />
                                     Resume
                                 </Link>
                             </Button>
