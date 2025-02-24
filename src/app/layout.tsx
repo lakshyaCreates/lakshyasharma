@@ -70,6 +70,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <head>
+                <script
+                    defer
+                    src="https://umami-self-gamma.vercel.app/script.js"
+                    data-website-id="bd731bef-b52e-449f-869f-4340c33af262"
+                ></script>
+            </head>
             <body
                 className={cn(
                     `relative scroll-smooth bg-background p-6 antialiased lg:h-screen lg:overflow-x-hidden`,
