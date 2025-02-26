@@ -45,12 +45,12 @@ export const ThemeToggler = () => {
             size={"icon"}
             className="rounded-full"
             variant={"ghost"}
+            data-umami-event="theme-toggler"
         >
             {/* @ts-ignore  */}
             <Expand
                 duration={750}
                 onToggle={toggleTheme}
-                className=""
                 toggle={setToggled}
                 toggled={toggle}
             />
