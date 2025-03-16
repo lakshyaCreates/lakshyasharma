@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -71,11 +72,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <head>
-                <script
-                    defer
+                <Script
+                    async
                     src="https://umami-self-gamma.vercel.app/script.js"
                     data-website-id="bd731bef-b52e-449f-869f-4340c33af262"
-                ></script>
+                />
             </head>
             <body
                 className={cn(
